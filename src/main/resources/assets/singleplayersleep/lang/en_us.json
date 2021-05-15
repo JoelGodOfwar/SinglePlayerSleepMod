@@ -1,0 +1,7 @@
+{
+  "singleplayersleepmod.sleepmsg": "%1$s went to bed. Sweet dreams!",
+  "singleplayersleep.config.sleepmsg": "Set the sleep message.",
+  "singleplayersleep.config.enabled": "Set if SinglePlayerSleep is enabled.",
+  "singleplayersleep.config.delay": "Set delay in ticks before time is changed."
+  
+}
