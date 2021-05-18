@@ -1,0 +1,16 @@
+{
+  "homepage": "<homepage/download page for your mod>",
+  "1.16.5": {
+    "1.16.5_1.0.0": "Initial commit.", 
+    "1.16.5_1.0.1": "Added update checking.",
+    "1.16.5_1.0.2": "Added common configs."
+  },
+  ...
+  "promos": {
+    "1.16.5-latest": "1.16.5_1.0.2",
+    // Declare the latest "bleeding-edge" version of your mod for the given Minecraft version
+    "1.16.5-recommended": "1.16.5_1.0.2",
+    // Declare the latest "stable" version of your mod for the given Minecraft version
+    ...
+  }
+}
