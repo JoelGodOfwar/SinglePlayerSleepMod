@@ -4,7 +4,7 @@ license="GNU GPLv3"
 issueTrackerURL="https://discord.gg/MWvCEjSSNe" #optional
 [[mods]] #mandatory
 modId="singleplayersleepmod" #mandatory
-version="1.16.5_1.0.1" #${file.jarVersion}" #mandatory
+version="1.16.5_1.0.2" #${file.jarVersion}" #mandatory
 displayName="Single Player Sleep Mod" #mandatory
 updateJSONURL="https://raw.githubusercontent.com/JoelGodOfwar/SinglePlayerSleepMod/main/update.json" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/singleplayersleep" #optional

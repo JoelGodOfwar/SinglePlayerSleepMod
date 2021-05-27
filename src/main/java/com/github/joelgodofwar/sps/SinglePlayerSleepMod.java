@@ -1,13 +1,9 @@
 package com.github.joelgodofwar.sps;
 
-import java.io.File;
-import java.nio.file.Path;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.github.joelgodofwar.sps.common.config.Config;
-import com.github.joelgodofwar.sps.config.SimpleConfig;
 import com.github.joelgodofwar.sps.server.events.InteractEventHandler;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -23,8 +19,6 @@ import net.minecraftforge.fml.event.server.FMLServerStartedEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.event.server.FMLServerStoppingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLConfig;
-import net.minecraftforge.fml.loading.FMLPaths;
 
 @Mod("singleplayersleepmod")
 public class SinglePlayerSleepMod {
@@ -33,7 +27,6 @@ public class SinglePlayerSleepMod {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "singleplayersleepmod";
     InteractEventHandler IEventHandler = new InteractEventHandler();
-    public static final Path defaultConfigPath = FMLPaths.GAMEDIR.get().resolve(FMLConfig.defaultConfigPath() + File.pathSeparatorChar);
 
     public SinglePlayerSleepMod() {
         // Register the setup method for modloading
@@ -44,7 +37,7 @@ public class SinglePlayerSleepMod {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.SERVER_SPEC, "singleplayersleepmod-server.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC, "singleplayersleepmod-common.toml");
         
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -87,13 +80,11 @@ public class SinglePlayerSleepMod {
     	LOGGER.info("Registering Events...");
     	MinecraftForge.EVENT_BUS.register(new InteractEventHandler());
     	//IEventHandler.loadConfig();
-    	SimpleConfig.saveDefaults();
-        LOGGER.info("defaultConfigPath=" + defaultConfigPath);
     	LOGGER.info("Loading Complete.");
     }
     @SubscribeEvent
     public void doServerStuff(final FMLServerStoppingEvent  event) {
     	LOGGER.info("Saving configs...");
-    	Config.SERVER_SPEC.save();
+    	Config.COMMON_SPEC.save();
     }
 }
